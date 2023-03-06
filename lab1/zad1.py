@@ -1,5 +1,6 @@
 #importy
 import math
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -26,6 +27,8 @@ xData = []
 yData1 = []
 yData2 = []
 
+data = []
+
 true_value = trueDerivative(x)
 
 for k in range(17):
@@ -45,6 +48,15 @@ xData = np.array(xData)
 yData1 = np.array(yData1)
 yData2 = np.array(yData2)
 
+#znajdowanie h_min
+h1 = xData[np.argmin(yData1)]
+h2 = xData[np.argmin(yData2)]
+true_h = math.sqrt(sys.float_info.epsilon)
+
+print("h1 =", h1)
+print("h2 =", h2)
+print("h =", true_h)
+
 #rysowanie wykresow
 #wykres1
 plt.subplot(1,2,1)
@@ -59,8 +71,6 @@ plt.yscale("log")
 plt.xscale("log")
 plt.plot(xData, yData2)
 plt.show()
-
-
 
 
 
