@@ -25,7 +25,10 @@ anData = np.array(anData)
 errorData = np.array(errorData)
 
 #wyswietlanie n dla ktorego wykres zaczyna rosnac
-print("n =", xData[np.argmin(anData)])
+last_n = xData[np.argmin(anData)]
+print("n =", last_n)
+print("a_n =", anData[last_n-1])
+print("true_a_n =", true_function(int(last_n)))
 
 #rysowanie wykresu
 #wykres a_n
