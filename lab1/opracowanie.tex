@@ -32,14 +32,14 @@
 	
 	$$x = 1$$
 	
-	Na podstawie wzorów (1) i (2) wykonano wykresy wartości bezwzględnej błędu w zależności od wartości $h = 10^{-k}$, przy czym: $k = 1,2,3,...,16$. Osie są w skali logarytmicznej.
+	Na podstawie wzorów (1) i (2) wykonano wykresy wartości bezwzględnej błędu w zależności od wartości $h = 10^{-k}$, przy czym: $k = 0,1,2,3,...,16$. Osie są w skali logarytmicznej.
 	
 	\begin{figure}[h]
     		\centering
   		\includegraphics[scale = 0.5]{zad1.png}
 	\end{figure}
 	
-	Wykresy wartości bezwzględnych błędów mają swoje minima dla wartości $h_min$ odpowiednio:
+	Wykresy wartości bezwzględnych błędów mają swoje minima dla wartości $h_{min}$ odpowiednio:
 	
 	$$h_{min_1} = 10^{-8}$$
 	$$h_{min_2} = 10^{-7}$$
@@ -68,7 +68,7 @@
 		x_{k+1} = 2.25 \cdot x_k - 0.5 \cdot x_{k-1}	
 	\end{equation}
 	
-	Wzór ten można przekształcić na "przyjaźniejszy":
+	Powyższy wzór przekształcono:
 	
 	\begin{equation}
 		a_n = 2.25 \cdot a_{n-1} - 0.5 \cdot a_{n-2}
@@ -111,7 +111,7 @@
 	
 	$$a_{20} \approx 2.771793376831781 \cdot 10^{-12} \approx 2.77 \cdot 10^{-12}$$
 	
-	Jest to zatem bardzo mała liczba, z tego powodu wykres $a_n$ może znacznie odbiegać od oczekiwanego przebiegu.
+	Jest to zatem bardzo mała liczba, zatem z powodu dużych błędów numerycznych związanych ze zbyt małymi wartościami, wykres $a_n$ może znacznie odbiegać od oczekiwanego przebiegu.
 	
 	
 	
