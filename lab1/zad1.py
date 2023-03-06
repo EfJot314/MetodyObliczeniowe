@@ -51,7 +51,7 @@ yData2 = np.array(yData2)
 #znajdowanie h_min
 h1 = xData[np.argmin(yData1)]
 h2 = xData[np.argmin(yData2)]
-true_h = math.sqrt(sys.float_info.epsilon)
+true_h = math.sqrt(np.finfo(float).eps)
 
 print("h1 =", h1)
 print("h2 =", h2)
@@ -61,12 +61,16 @@ print("h =", true_h)
 #wykres1
 plt.subplot(1,2,1)
 plt.title(r"$f'(x) = \frac{f(x+h)-f(x)}{h}$")
+plt.xlabel(r"$ h")
+plt.ylabel(r"error")
 plt.yscale("log")
 plt.xscale("log")
 plt.plot(xData, yData1)
 #wykres2
 plt.subplot(1,2,2)
 plt.title(r"$f'(x) = \frac{f(x+h)-f(x-h)}{2h}$")
+plt.xlabel(r"h")
+plt.ylabel(r"error")
 plt.yscale("log")
 plt.xscale("log")
 plt.plot(xData, yData2)
