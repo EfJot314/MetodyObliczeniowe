@@ -22,6 +22,60 @@ df3 = trainData.iloc[:,3]
 l4 = labelsData.iloc[:,0][10]
 df4 = trainData.iloc[:,10]
 
+#liczba cech
+m = 10
+
+#liczba danych w train
+nt = trainData.shape[0]
+
+#liczba danych w validate
+nv = validateData.shape[0]
+
+
+#inicjowanie macierzy
+At = np.zeros((nt,m), dtype=float)
+Av = np.zeros((nv,m), dtype=float)
+
+
+#wypelnianie macierzy
+delta = 2
+for column in range(m):
+    #train
+    for row in range(nt):
+        At[row,column] = trainData.iat[row,column+delta]
+    #validate
+    for row in range(nv):
+        Av[row,column] = validateData.iat[row,column+delta]
+
+
+
+
+print(At)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #wykresy histogramow
 plt.subplot(2,2,1)
 plt.hist(df1)
