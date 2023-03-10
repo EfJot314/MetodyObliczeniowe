@@ -52,10 +52,17 @@ sil = lambda a : (a==2 and 2 or a*sil(a-1))
 
 m = 4
 features = [2, 4, 5, 10]
+pars  = {"M": 1, "B": -1}
+#macierze quad
 At_quad = np.zeros((nt,2*m+sil(m-1)), dtype=float)
 Av_quad = np.zeros((nv,2*m+sil(m-1)), dtype=float)
+#wektory b
+bt = np.zeros((nt,1), dtype=float)
+bv = np.zeros((nv,1), dtype=float)
+
 
 for row in range(nt):
+    bt[row,0] = pars[trainData.iat[row,1]]
     column = 0
     #bez przeksztalcenia
     for f in features:
@@ -73,6 +80,7 @@ for row in range(nt):
             column += 1
 
 for row in range(nv):
+    bv[row,0] = pars[validateData.iat[row,1]]
     column = 0
     #bez przeksztalcenia
     for f in features:
@@ -90,9 +98,10 @@ for row in range(nv):
             column += 1
 
     
+    
 
 
-print(At_quad)
+print(bt)
 
 
 
