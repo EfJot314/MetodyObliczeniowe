@@ -48,9 +48,51 @@ for column in range(m):
         Av[row,column] = validateData.iat[row,column+delta]
 
 
+sil = lambda a : (a==2 and 2 or a*sil(a-1))
+
+m = 4
+features = [2, 4, 5, 10]
+At_quad = np.zeros((nt,2*m+sil(m-1)), dtype=float)
+Av_quad = np.zeros((nv,2*m+sil(m-1)), dtype=float)
+
+for row in range(nt):
+    column = 0
+    #bez przeksztalcenia
+    for f in features:
+        At_quad[row, column] = trainData.iat[row,f]
+        column += 1
+    #kwadrat
+    for f in features:
+        value = (trainData.iat[row,f])**2
+        At_quad[row, column] = value
+        column += 1
+    for f1 in range(m):
+        for f2 in range(f1+1, m):
+            value = trainData.iat[row,features[f1]] * trainData.iat[row,features[f2]]
+            At_quad[row, column] = value
+            column += 1
+
+for row in range(nv):
+    column = 0
+    #bez przeksztalcenia
+    for f in features:
+        Av_quad[row, column] = validateData.iat[row,f]
+        column += 1
+    #kwadrat
+    for f in features:
+        value = (validateData.iat[row,f])**2
+        Av_quad[row, column] = value
+        column += 1
+    for f1 in range(m):
+        for f2 in range(f1+1, m):
+            value = validateData.iat[row,features[f1]] * validateData.iat[row,features[f2]]
+            Av_quad[row, column] = value
+            column += 1
+
+    
 
 
-print(At)
+print(At_quad)
 
 
 
