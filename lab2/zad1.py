@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from scipy.linalg import lstsq
 import matplotlib.pyplot as plt
 
 
@@ -98,10 +99,11 @@ for row in range(nv):
             column += 1
 
     
-    
+#wyznaczanie macierzy wag
+w, res1, rnk1, s1 = lstsq(At, bt)
+w_quad, res2, rnk2, s2 = lstsq(At_quad, bt)
 
-
-print(bt)
+print(w)
 
 
 
