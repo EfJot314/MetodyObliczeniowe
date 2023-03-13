@@ -10,18 +10,21 @@ trainData = pd.read_csv('/home/filipjedrzejewski/MetodyObliczeniowe/lab2/breast-
 validateData = pd.read_csv('/home/filipjedrzejewski/MetodyObliczeniowe/lab2/breast-cancer-validate.dat')
 
 #wybrane dane do histogramow
-#texture
-l1 = labelsData.iloc[:,0][2]
-df1 = trainData.iloc[:,2]
-#smoothness
-l2 = labelsData.iloc[:,0][5]
-df2 = trainData.iloc[:,5]
-#perimeter
-l3 = labelsData.iloc[:,0][3]
-df3 = trainData.iloc[:,3]
-#fractal_dimension
-l4 = labelsData.iloc[:,0][10]
-df4 = trainData.iloc[:,10]
+featId = 2
+l1 = labelsData.iloc[:,0][featId-1]
+df1 = trainData.iloc[:,featId]
+
+featId = 4
+l2 = labelsData.iloc[:,0][featId-1]
+df2 = trainData.iloc[:,featId]
+
+featId = 5
+l3 = labelsData.iloc[:,0][featId-1]
+df3 = trainData.iloc[:,featId]
+
+featId = 10
+l4 = labelsData.iloc[:,0][featId-1]
+df4 = trainData.iloc[:,featId]
 
 #liczba cech
 m = 10
@@ -100,8 +103,8 @@ for row in range(nv):
 
     
 #wyznaczanie macierzy wag
-w, res1, rnk1, s1 = lstsq(At, bt)
-w_quad, res2, rnk2, s2 = lstsq(At_quad, bt)
+w = lstsq(At, bt)[0]
+w_quad = lstsq(At_quad, bt)[0]
 
 
 #wyznaczanie wspolczynnikow uwarunkowania
