@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 
 
 #pobieranie danych
-labelsData = pd.read_csv('/home/filipjedrzejewski/MetodyObliczeniowe/lab2/breast-cancer.labels')
-trainData = pd.read_csv('/home/filipjedrzejewski/MetodyObliczeniowe/lab2/breast-cancer-train.dat')
-validateData = pd.read_csv('/home/filipjedrzejewski/MetodyObliczeniowe/lab2/breast-cancer-validate.dat')
+labelsData = pd.read_csv('/home/filipjedrzejewski/MetodyObliczeniowe/lab2/breast-cancer.labels', header=None)
+trainData = pd.read_csv('/home/filipjedrzejewski/MetodyObliczeniowe/lab2/breast-cancer-train.dat', header=None)
+validateData = pd.read_csv('/home/filipjedrzejewski/MetodyObliczeniowe/lab2/breast-cancer-validate.dat', header=None)
 
 #wybrane dane do histogramow
 featId = 2
@@ -103,13 +103,13 @@ for row in range(nv):
 
     
 #wyznaczanie macierzy wag
-w = lstsq(At, bt)[0]
-w_quad = lstsq(At_quad, bt)[0]
+w, res1, rank1, s = lstsq(At, bt)
+w_quad, res1, rank1, s_quad = lstsq(At_quad, bt)
 
 
 #wyznaczanie wspolczynnikow uwarunkowania
-cond = np.linalg.cond(At)
-cond_quad = np.linalg.cond(At_quad)
+cond = s[0]/s[-1]
+cond_quad = s_quad[0]/s_quad[-1]
 
 print("Wspolczynniki uwarunkowania lin/quad:")
 print(cond, cond_quad)
