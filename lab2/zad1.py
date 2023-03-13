@@ -103,29 +103,53 @@ for row in range(nv):
 w, res1, rnk1, s1 = lstsq(At, bt)
 w_quad, res2, rnk2, s2 = lstsq(At_quad, bt)
 
-print(w)
+
+#wyznaczanie wspolczynnikow uwarunkowania
+cond = np.linalg.cond(At)
+cond_quad = np.linalg.cond(At_quad)
+
+print("Wspolczynniki uwarunkowania lin/quad:")
+print(cond, cond_quad)
+print()
 
 
+#przewidywania
+p = np.matmul(Av, w)
+p_quad = np.matmul(Av_quad, w_quad)
 
+#sprawdzanie jakosci przewidywan
+tp, tn, fp, fn = 0, 0, 0, 0     #true-positive, true-negative, false-positive false-negative
+tp_quad, tn_quad, fp_quad, fn_quad = 0, 0, 0, 0
 
+for i in range(len(p)):
+    expected = (bv[i]>0)
+    
+    current = (p[i]>0)
+    if current and expected:
+        tp += 1
+    elif current and not expected:
+        fp += 1
+    elif not current and not expected:
+        tn += 1
+    elif not current and expected:
+        fn += 1
+    
+    current = (p_quad[i]>0)
+    if current and expected:
+        tp_quad += 1
+    elif current and not expected:
+        fp_quad += 1
+    elif not current and not expected:
+        tn_quad += 1
+    elif not current and expected:
+        fn_quad += 1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print("WYNIKI")
+print("Postac: true-positive, false-positive, true-negative, false-negative")
+print("Wyniki dla reprezentacji liniowej")
+print(tp, fp, tn, fn)
+print("Wyniki dla reprezentacji kwadratowej")
+print(tp_quad, fp_quad, tn_quad, fn_quad)
 
 
 
