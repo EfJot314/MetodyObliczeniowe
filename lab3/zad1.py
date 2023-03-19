@@ -91,10 +91,10 @@ population_in_USA = np.array([f(year) for year in years])
 
 
 #wykres 1
-plt.title("Wielomian dla lat 1900 - 1990")
-plt.plot(years, population_in_USA)
-plt.plot(xData, yData, "ro")
-plt.show()
+# plt.title("Wielomian dla lat 1900 - 1990")
+# plt.plot(years, population_in_USA)
+# plt.plot(xData, yData, "ro")
+# plt.show()
 
 #ekstrapolacja dla roku 1990
 exp_USA1990 = f(1990)
@@ -108,6 +108,36 @@ relative_error = abs(exp_USA1990 - real_USA1990) / real_USA1990
 print("Blad wzgledny ekstrapolacji:", relative_error, "=", relative_error*100, "%")
 
 
+#interpolacja lagrange'a
 
+def addLambda(f1, f2):
+    return lambda x: f1(x)+f2(x)
+
+def multiplyLambda(f1, f2):
+    return lambda x: f1(x)*f2(x)
+
+wl = lambda x: 0
+for i in range(9):
+    deltaW = lambda x: 1
+    for j in range(9):
+        if(j == i):
+            print("XD")
+        else:
+            deltaW = multiplyLambda(deltaW, lambda x: (x-xData[j]))
+            deltaW = multiplyLambda(deltaW, lambda x: 1/(xData[i]-xData[j]))
+            print("XD2")
+            print(xData[i]-xData[j])
+            print(deltaW(10))
+    deltaW = multiplyLambda(deltaW, lambda x: yData[i])
+    print(deltaW(10))
+    wl = addLambda(wl, deltaW)
+
+
+#wykres 2
+# population_in_USA = np.array([wl(year) for year in years])
+# plt.title("Wielomian lagrage'a")
+# plt.plot(years, population_in_USA)
+# plt.plot(xData, yData, "ro")
+# plt.show()
 
 
