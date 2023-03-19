@@ -59,16 +59,22 @@ print("Wspolczynniki uwarunkowania:", cond1, cond2, cond3, cond4)
 
 #wybieranie najlepszego uwarunkowania
 M = np.zeros((N,N))
+fi = None
 minCond = min(cond1, cond2, cond3, cond4)
 print("Najmniejszy wspolczynnik uwarunkowania:", minCond)
 if(cond1 == minCond):
     M = M1
+    fi = fi1
 elif(cond2 == minCond):
     M = M2
+    fi = fi2
 elif(cond3 == minCond):
     M = M3
+    fi = fi3
 elif(cond4 == minCond):
     M = M4
+    fi = fi4
+
 
 
 #wyznaczanie wspolczynnikow
@@ -76,6 +82,30 @@ C = np.linalg.solve(M, yData)
 
 print("Otrzymane wspolczynniki:", C)
 
+#tworzenie wielomianu
+f = lambda x: C[0] + C[1]*fi(x) + C[2]*(fi(x))**2 + C[3]*(fi(x))**3 + C[4]*(fi(x))**4 + C[5]*(fi(x))**5 + C[6]*(fi(x))**6 + C[7]*(fi(x))**7 + C[8]*(fi(x))**8
+
+#tworzenie danych do wykresu
+years = np.array([year for year in range(1900, 1991)])
+population_in_USA = np.array([f(year) for year in years])
+
+
+#wykres 1
+plt.title("Wielomian dla lat 1900 - 1990")
+plt.plot(years, population_in_USA)
+plt.plot(xData, yData, "ro")
+plt.show()
+
+#ekstrapolacja dla roku 1990
+exp_USA1990 = f(1990)
+real_USA1990 = 248709873
+
+print("Populacja USA w 1990 model / wartosc prawdziwa:", exp_USA1990, real_USA1990)
+
+#blad wzgledny ekstrapolacji
+relative_error = abs(exp_USA1990 - real_USA1990) / real_USA1990
+
+print("Blad wzgledny ekstrapolacji:", relative_error, "=", relative_error*100, "%")
 
 
 
