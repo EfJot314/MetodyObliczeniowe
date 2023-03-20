@@ -98,6 +98,8 @@ population_in_USA = np.array([f(year) for year in years])
 plt.title("Wielomian wyznaczony z macierzy")
 plt.plot(years, population_in_USA)
 plt.plot(xData, yData, "ro")
+plt.xlabel("year")
+plt.ylabel("population in USA")
 plt.show()
 
 #ekstrapolacja dla roku 1990
@@ -133,6 +135,8 @@ population_in_USA = np.array([lagrange(year) for year in years])
 plt.title("Wielomian Lagrage'a")
 plt.plot(years, population_in_USA)
 plt.plot(xData, yData, "ro")
+plt.xlabel("year")
+plt.ylabel("population in USA")
 plt.show()
 
 
@@ -161,6 +165,8 @@ population_in_USA = np.array([newton(year) for year in years])
 plt.title("Wielomian Newtona")
 plt.plot(years, population_in_USA)
 plt.plot(xData, yData, "ro")
+plt.xlabel("year")
+plt.ylabel("population in USA")
 plt.show()
 
 
@@ -180,5 +186,7 @@ population_in_USA = np.array([rounded_f(year) for year in years])
 plt.title("Wielomian wyznaczony z macierzy dla zaokraglenego yData")
 plt.plot(years, population_in_USA)
 plt.plot(xData, rounded_yData, "ro")
+plt.xlabel("year")
+plt.ylabel("population in USA")
 plt.show()
 
