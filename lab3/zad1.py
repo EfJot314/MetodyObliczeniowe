@@ -108,13 +108,14 @@ relative_error = abs(exp_USA1990 - real_USA1990) / real_USA1990
 print("Blad wzgledny ekstrapolacji:", relative_error, "=", relative_error*100, "%")
 
 
-#interpolacja Lagrange'a
+#funkcje pomocnicze do operacji na funkcjach lambda
 def addLambda(f1, f2):
     return lambda x: f1(x)+f2(x)
 
 def multiplyLambda(f1, f2):
     return lambda x: f1(x)*f2(x)
 
+#interpolacja Lagrange'a
 lagrange = lambda x: 0
 for i in range(9):
     deltaW = lambda x: 1
@@ -125,15 +126,43 @@ for i in range(9):
     lagrange = addLambda(lagrange, deltaW)
 
 #wykres 2
-population_in_USA = np.array([lagrange(year) for year in years])
-plt.title("Wielomian Lagrage'a")
-plt.plot(years, population_in_USA)
-plt.plot(xData, yData, "ro")
-plt.show()
+# population_in_USA = np.array([lagrange(year) for year in years])
+# plt.title("Wielomian Lagrage'a")
+# plt.plot(years, population_in_USA)
+# plt.plot(xData, yData, "ro")
+# plt.show()
 
 
 #interpolacja Newtona
+def diff(tab):
+    if(len(tab) == 1):
+        return yData[tab[0]]
+    oldTab = tab.copy()
+    tab = tab[:-1]
+    oldTab = oldTab[1:]
+    print(oldTab)
+    print(tab)
+    print()
+    return (diff(oldTab.copy()) - diff(tab.copy())) / (oldTab[len(oldTab)-1] - tab[0])
 
+
+newton = lambda x: 0
+help = []
+for i in range(9):
+    help.append(i)
+    deltaW = lambda x: 1
+    for j in range(i):
+        deltaW = multiplyLambda(deltaW, lambda x, xj=xData[j]: (x-xj))
+    difVal = diff(help)
+    deltaW = multiplyLambda(deltaW, lambda x, f=difVal: f)
+    newton = addLambda(newton, deltaW)
+
+#wykres 3
+population_in_USA = np.array([newton(year) for year in years])
+plt.title("Wielomian Newtona")
+plt.plot(years, population_in_USA)
+plt.plot(xData, yData, "ro")
+plt.show()
 
 
 
