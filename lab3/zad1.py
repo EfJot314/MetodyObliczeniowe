@@ -62,16 +62,21 @@ M = np.zeros((N,N))
 fi = None
 minCond = min(cond1, cond2, cond3, cond4)
 print("Najmniejszy wspolczynnik uwarunkowania:", minCond)
+
 if(cond1 == minCond):
+    print("Wybrano baze 1")
     M = M1
     fi = fi1
 elif(cond2 == minCond):
+    print("Wybrano baze 2")
     M = M2
     fi = fi2
 elif(cond3 == minCond):
+    print("Wybrano baze 3")
     M = M3
     fi = fi3
 elif(cond4 == minCond):
+    print("Wybrano baze 4")
     M = M4
     fi = fi4
 
@@ -79,7 +84,6 @@ elif(cond4 == minCond):
 
 #wyznaczanie wspolczynnikow
 C = np.linalg.solve(M, yData)
-
 print("Otrzymane wspolczynniki:", C)
 
 #tworzenie wielomianu
@@ -90,21 +94,19 @@ years = np.array([year for year in range(1900, 1991)])
 population_in_USA = np.array([f(year) for year in years])
 
 
-#wykres 1
-# plt.title("Wielomian dla lat 1900 - 1990")
-# plt.plot(years, population_in_USA)
-# plt.plot(xData, yData, "ro")
-# plt.show()
+#wykres macierz
+plt.title("Wielomian wyznaczony z macierzy")
+plt.plot(years, population_in_USA)
+plt.plot(xData, yData, "ro")
+plt.show()
 
 #ekstrapolacja dla roku 1990
 exp_USA1990 = f(1990)
 real_USA1990 = 248709873
-
 print("Populacja USA w 1990 model / wartosc prawdziwa:", exp_USA1990, real_USA1990)
 
 #blad wzgledny ekstrapolacji
 relative_error = abs(exp_USA1990 - real_USA1990) / real_USA1990
-
 print("Blad wzgledny ekstrapolacji:", relative_error, "=", relative_error*100, "%")
 
 
@@ -114,6 +116,7 @@ def addLambda(f1, f2):
 
 def multiplyLambda(f1, f2):
     return lambda x: f1(x)*f2(x)
+
 
 #interpolacja Lagrange'a
 lagrange = lambda x: 0
@@ -125,39 +128,35 @@ for i in range(9):
     deltaW = multiplyLambda(deltaW, lambda x, yi=yData[i]: yi)
     lagrange = addLambda(lagrange, deltaW)
 
-#wykres 2
-# population_in_USA = np.array([lagrange(year) for year in years])
-# plt.title("Wielomian Lagrage'a")
-# plt.plot(years, population_in_USA)
-# plt.plot(xData, yData, "ro")
-# plt.show()
+#wykres Lagrange
+population_in_USA = np.array([lagrange(year) for year in years])
+plt.title("Wielomian Lagrage'a")
+plt.plot(years, population_in_USA)
+plt.plot(xData, yData, "ro")
+plt.show()
 
 
-#interpolacja Newtona
+
+#funkcja obliczajaca ilorazy roznicowe
 def diff(tab):
     if(len(tab) == 1):
         return yData[tab[0]]
-    oldTab = tab.copy()
-    tab = tab[:-1]
-    oldTab = oldTab[1:]
-    print(oldTab)
-    print(tab)
-    print()
-    return (diff(oldTab.copy()) - diff(tab.copy())) / (oldTab[len(oldTab)-1] - tab[0])
+    return (diff(tab[1:]) - diff(tab[:-1])) / (xData[tab[len(tab)-1]] - xData[tab[0]])
 
 
+#interpolacja Newtona
 newton = lambda x: 0
-help = []
+diffTab = []
 for i in range(9):
-    help.append(i)
+    diffTab.append(i)
     deltaW = lambda x: 1
     for j in range(i):
         deltaW = multiplyLambda(deltaW, lambda x, xj=xData[j]: (x-xj))
-    difVal = diff(help)
+    difVal = diff(diffTab)
     deltaW = multiplyLambda(deltaW, lambda x, f=difVal: f)
     newton = addLambda(newton, deltaW)
 
-#wykres 3
+#wykres Newton
 population_in_USA = np.array([newton(year) for year in years])
 plt.title("Wielomian Newtona")
 plt.plot(years, population_in_USA)
@@ -165,5 +164,21 @@ plt.plot(xData, yData, "ro")
 plt.show()
 
 
+#zaokraglanie danych yData
+roundFunction = lambda a: 1000000*round(a/1000000)
+rounded_yData = np.array([roundFunction(population) for population in yData])
 
+#wyznaczanie wspolczynnikow dla zaokraglonej macierzy
+rounded_C = np.linalg.solve(M, rounded_yData)
+print("Otrzymane wspolczynniki po zaokragleniu:", rounded_C)
+
+#tworzenie wielomianu dla nowych wspolczynnikow
+rounded_f = lambda x: rounded_C[0] + rounded_C[1]*fi(x) + rounded_C[2]*(fi(x))**2 + rounded_C[3]*(fi(x))**3 + rounded_C[4]*(fi(x))**4 + rounded_C[5]*(fi(x))**5 + rounded_C[6]*(fi(x))**6 + rounded_C[7]*(fi(x))**7 + rounded_C[8]*(fi(x))**8
+
+#wykres macierz zaokraglona
+population_in_USA = np.array([rounded_f(year) for year in years])
+plt.title("Wielomian wyznaczony z macierzy dla zaokraglenego yData")
+plt.plot(years, population_in_USA)
+plt.plot(xData, rounded_yData, "ro")
+plt.show()
 
