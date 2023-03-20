@@ -116,28 +116,31 @@ def addLambda(f1, f2):
 def multiplyLambda(f1, f2):
     return lambda x: f1(x)*f2(x)
 
+
+
 wl = lambda x: 0
 for i in range(9):
+    xi = xData[i]
+    yi = yData[i]
     deltaW = lambda x: 1
     for j in range(9):
-        if(j == i):
-            print("XD")
-        else:
-            deltaW = multiplyLambda(deltaW, lambda x: (x-xData[j]))
-            deltaW = multiplyLambda(deltaW, lambda x: 1/(xData[i]-xData[j]))
+        if(j != i):
+            xj = xData[j]
+            deltaW = multiplyLambda(deltaW, lambda x, xj=xj: (x-xj))
+            deltaW = multiplyLambda(deltaW, lambda x, xi=xi, xj=xj: 1/(xi-xj))
             print("XD2")
-            print(xData[i]-xData[j])
+            print(xi-xj)
             print(deltaW(10))
-    deltaW = multiplyLambda(deltaW, lambda x: yData[i])
+    deltaW = multiplyLambda(deltaW, lambda x, yi=yi: yi)
     print(deltaW(10))
     wl = addLambda(wl, deltaW)
 
 
 #wykres 2
-# population_in_USA = np.array([wl(year) for year in years])
-# plt.title("Wielomian lagrage'a")
-# plt.plot(years, population_in_USA)
-# plt.plot(xData, yData, "ro")
-# plt.show()
+population_in_USA = np.array([wl(year) for year in years])
+plt.title("Wielomian Lagrage'a")
+plt.plot(years, population_in_USA)
+plt.plot(xData, yData, "ro")
+plt.show()
 
 
