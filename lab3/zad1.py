@@ -108,39 +108,33 @@ relative_error = abs(exp_USA1990 - real_USA1990) / real_USA1990
 print("Blad wzgledny ekstrapolacji:", relative_error, "=", relative_error*100, "%")
 
 
-#interpolacja lagrange'a
-
+#interpolacja Lagrange'a
 def addLambda(f1, f2):
     return lambda x: f1(x)+f2(x)
 
 def multiplyLambda(f1, f2):
     return lambda x: f1(x)*f2(x)
 
-
-
-wl = lambda x: 0
+lagrange = lambda x: 0
 for i in range(9):
-    xi = xData[i]
-    yi = yData[i]
     deltaW = lambda x: 1
     for j in range(9):
         if(j != i):
-            xj = xData[j]
-            deltaW = multiplyLambda(deltaW, lambda x, xj=xj: (x-xj))
-            deltaW = multiplyLambda(deltaW, lambda x, xi=xi, xj=xj: 1/(xi-xj))
-            print("XD2")
-            print(xi-xj)
-            print(deltaW(10))
-    deltaW = multiplyLambda(deltaW, lambda x, yi=yi: yi)
-    print(deltaW(10))
-    wl = addLambda(wl, deltaW)
-
+            deltaW = multiplyLambda(deltaW, lambda x, xi=xData[i], xj=xData[j]: (x-xj)/(xi-xj))
+    deltaW = multiplyLambda(deltaW, lambda x, yi=yData[i]: yi)
+    lagrange = addLambda(lagrange, deltaW)
 
 #wykres 2
-population_in_USA = np.array([wl(year) for year in years])
+population_in_USA = np.array([lagrange(year) for year in years])
 plt.title("Wielomian Lagrage'a")
 plt.plot(years, population_in_USA)
 plt.plot(xData, yData, "ro")
 plt.show()
+
+
+#interpolacja Newtona
+
+
+
 
 
