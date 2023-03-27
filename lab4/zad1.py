@@ -153,7 +153,8 @@ for n in nData:
 
 
 #wykresy
-plt.title("f1(x)")
+plt.title("f1(x) (skala logarytmiczna)")
+plt.yscale("log")
 plt.plot(nData, lagrangeErrors1, label = "Lagrange dla równoodległych węzłów")
 plt.plot(nData, splineErrors1, label = "kubiczne funkcje sklejane")
 plt.plot(nData, czebErrors1, label = "Lagrange dla węzłów Czebyszewa")
@@ -162,7 +163,8 @@ plt.ylabel("norma wektora błędu")
 plt.legend()
 plt.show()
 
-plt.title("f2(x)")
+plt.title("f2(x) (skala logarytmiczna)")
+plt.yscale("log")
 plt.plot(nData, lagrangeErrors1, label = "Lagrange dla równoodległych węzłów")
 plt.plot(nData, splineErrors1, label = "kubiczne funkcje sklejane")
 plt.plot(nData, czebErrors1, label = "Lagrange dla węzłów Czebyszewa")
