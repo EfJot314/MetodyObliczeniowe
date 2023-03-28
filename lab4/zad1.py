@@ -89,14 +89,15 @@ lagrangeErrors2 = []
 splineErrors2 = []
 czebErrors2 = []
 
-nData = np.array([j for j in range(4,51)])
+nData = np.array([j for j in range(4,70)])
 
-
+#dane testowe
 testXData1 = np.array([getRandom(-1, 1) for j in range(500)])
 testXData2 = np.array([getRandom(0, 2*np.pi) for j in range(500)])
 
 #petla tworzaca dane
 for n in nData:
+    
     #f1
 
     #zbiory x
@@ -152,6 +153,7 @@ for n in nData:
     czebErrors2.append(np.linalg.norm(errorC))
 
 
+
 #wykresy
 plt.title("f1(x) (skala logarytmiczna)")
 plt.yscale("log")
@@ -163,11 +165,12 @@ plt.ylabel("norma wektora błędu")
 plt.legend()
 plt.show()
 
-plt.title("f2(x) (skala logarytmiczna)")
-plt.yscale("log")
-plt.plot(nData, lagrangeErrors1, label = "Lagrange dla równoodległych węzłów")
-plt.plot(nData, splineErrors1, label = "kubiczne funkcje sklejane")
-plt.plot(nData, czebErrors1, label = "Lagrange dla węzłów Czebyszewa")
+plt.title("f2(x)")
+plt.xlim(3, 60)
+plt.ylim(25,50)
+plt.plot(nData, lagrangeErrors2, label = "Lagrange dla równoodległych węzłów")
+plt.plot(nData, splineErrors2, label = "kubiczne funkcje sklejane")
+plt.plot(nData, czebErrors2, label = "Lagrange dla węzłów Czebyszewa")
 plt.xlabel("N")
 plt.ylabel("norma wektora błędu")
 plt.legend()
