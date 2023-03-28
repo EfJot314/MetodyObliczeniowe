@@ -130,12 +130,12 @@ for n in nData:
 
     #zbiory x
     h = 2*np.pi/n
-    xData = np.array([-1+j*h for j in range(n+1)])
+    xData = np.array([j*h for j in range(n+1)])
     czebXData = np.array([ 2*np.pi*(np.cos((2*j+1)*np.pi/(2*(n+1)))+1)/2 for j in range(n+1)])
 
     #zbiory Y
-    yData = f1(xData)
-    czebYData = f1(czebXData)
+    yData = f2(xData)
+    czebYData = f2(czebXData)
 
     #wyznaczanie funkcji interpolacyjnych
     fL = lagrange(xData, yData, n)
@@ -166,8 +166,7 @@ plt.legend()
 plt.show()
 
 plt.title("f2(x)")
-plt.xlim(3, 60)
-plt.ylim(25,50)
+plt.yscale("log")
 plt.plot(nData, lagrangeErrors2, label = "Lagrange dla równoodległych węzłów")
 plt.plot(nData, splineErrors2, label = "kubiczne funkcje sklejane")
 plt.plot(nData, czebErrors2, label = "Lagrange dla węzłów Czebyszewa")
