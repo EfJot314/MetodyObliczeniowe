@@ -65,6 +65,7 @@ dTheta = np.pi/n
 czebPlotX = np.array([np.cos(dTheta*j) for j in range(n)])
 
 #wykresy
+plt.title("f1(x)")
 plt.plot(xData, yData, "ro", label="równoodległe węzły")
 plt.plot(czebXData, czebYData, "go", label="węzły Czebyszewa")
 plt.plot(plotX, fL(plotX), label="wielomian Lagrange'a dla równoodległych węzłów")
@@ -89,7 +90,7 @@ lagrangeErrors2 = []
 splineErrors2 = []
 czebErrors2 = []
 
-nData = np.array([j for j in range(4,70)])
+nData = np.array([j for j in range(4,71)])
 
 #dane testowe
 testXData1 = np.array([getRandom(-1, 1) for j in range(500)])
@@ -155,7 +156,7 @@ for n in nData:
 
 
 #wykresy
-plt.title("f1(x) (skala logarytmiczna)")
+plt.title("błąd f1(x) (skala logarytmiczna)")
 plt.yscale("log")
 plt.plot(nData, lagrangeErrors1, label = "Lagrange dla równoodległych węzłów")
 plt.plot(nData, splineErrors1, label = "kubiczne funkcje sklejane")
@@ -165,7 +166,7 @@ plt.ylabel("norma wektora błędu")
 plt.legend()
 plt.show()
 
-plt.title("f2(x)")
+plt.title("błąd f2(x) (skala logarytmiczna)")
 plt.yscale("log")
 plt.plot(nData, lagrangeErrors2, label = "Lagrange dla równoodległych węzłów")
 plt.plot(nData, splineErrors2, label = "kubiczne funkcje sklejane")
