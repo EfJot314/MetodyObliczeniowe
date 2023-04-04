@@ -70,7 +70,7 @@
 	W celu znalezienia najlepszego stopnia wielomianu aproksymującego dane, można się posłużyć kryterium informacyjnym Akaikego:
 	
 	\begin{equation}
-		AIC = 2k - k \ln \left( \frac{\sum^n_{i=1} [y_i - \^y (x_i)]^2}{k} \right)
+		AIC = 2k + n \ln \left( \frac{\sum^n_{i=1} [y_i - \^y (x_i)]^2}{n} \right)
 	\end{equation}
 	
 	gdzie: $k = m+1$, $y_i$ - prawdziwa wartość funkcji dla argumentu $x_i$, $\^y (x_i)$ - wartość funkcji przewidywana przez model (wartośc wielomianu dla argumentu $x_i$). Jeżeli rozmiar próbki ($n$) jest niewielki, czyli $\frac{n}{k} < 40$, to należy dodać do wzoru (1) składnik korygujący:
@@ -88,19 +88,19 @@
   			\hline 
   			Stopień wielomianu & AIC\\
   			\hline
-  			$0$ & $-35.01$ \\
-  			$1$ & $-59.91$ \\
-  			$2$ & $-82.05$ \\
-  			$3$ & $-103.86$ \\
-  			$4$ & $-117.90$ \\
-  			$5$ & $-119.94$ \\
-  			$6$ & $-74.30$ \\
+  			$0$ & $321.01$ \\
+  			$1$ & $289.06$ \\
+  			$2$ & $279.45$ \\
+  			$3$ & $284.88$ \\
+  			$4$ & $290.93$ \\
+  			$5$ & $311.26$ \\
+  			$6$ & $381.27$ \\
 		\end{tabular} 
 		
 	\end{center}	
 	
 	
-	Według kryterium informacyjnego Akaikego najlepszym wielomianem aproksymującym dane jest wielomian stopnia 5. 
+	Według kryterium informacyjnego Akaikego najlepszym wielomianem aproksymującym dane jest wielomian stopnia 2. 
 	
 	\subsection*{Wnioski}	
 	
