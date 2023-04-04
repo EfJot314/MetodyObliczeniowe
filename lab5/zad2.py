@@ -31,7 +31,7 @@ T2 = lambda x: 2 * x**2 - 1
 czebTab = [T0, T1, T2]
 
 #funkcja wag Czebyszewa (2 wersja)
-w = lambda x: (1-x**2)**(0.5)
+w = lambda x: (1-x**2)**(-0.5)
 
 #badana funkcja na przedziale [0,2]
 f = lambda x: x**0.5
@@ -50,7 +50,8 @@ for i in range(3):
     currF2 = multiplyLambda(currF2, czebTab[i])
     currF2 = multiplyLambda(currF2, czebTab[i])
     #wspolczynnik
-    c = integralValue(currF1, -1, 1, 1000) / integralValue(currF2, -1, 1, 1000)
+    c = integralValue(currF1, -0.99, 0.99, 1000) / integralValue(currF2, -0.99, 0.99, 2000)
+    print("c"+str(i)+":", c)
     deltaP = multiplyLambda(lambda x, wsp=c: wsp, czebTab[i])
     p = addLambda(p, deltaP)
 
@@ -65,6 +66,10 @@ yData1 = p(xData)
 yData2 = f(xData)
 plt.plot(xData, yData1, label="calculated function")
 plt.plot(xData, yData2, label="f(x) = sqrt(x)")
+
+plt.title("f(x) and its approximation")
+plt.xlabel("x")
+plt.ylabel("y")
 plt.legend()
 plt.show()
 

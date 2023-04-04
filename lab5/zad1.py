@@ -73,6 +73,9 @@ plt.plot(xData, yData, "ro", label="population data")
 #rok 1990
 plt.plot(1990, true1990Value, "bo", label="1990 true population")
 
+plt.title("Polynomials of population in USA")
+plt.xlabel("year")
+plt.ylabel("population")
 plt.legend()
 plt.show()
 
