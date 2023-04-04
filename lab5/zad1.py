@@ -40,7 +40,7 @@ def getAIC(X, Y, p, m, n):
     for i in range(n):
         sum += (Y[i] - p(X[i]))**2
 
-    aic = 2*k - k*np.log(sum/k)
+    aic = 2*k - n*np.log(sum/n)
 
     if n/k < 40:
         aic += 2*k*(k+1) / (n-k-1)
