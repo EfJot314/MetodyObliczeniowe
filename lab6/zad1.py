@@ -79,6 +79,14 @@ plt.legend()
 plt.show()
 
 
+#rzedy zbieznosci
+#metoda prostokatow
+for i in range(1, 20):
+    h1 = 1 / (2 ** (i-1))
+    h2 = 1 / (2 ** i)
+    
+
+
 
 
 
