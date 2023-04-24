@@ -7,20 +7,27 @@ from pathlib import Path
 f = lambda x: 4/ (1 + x*x)
 
 
-#zamiast skalowac licze dwa razy calke dla [-1, 1] z 2*n wezlami, a nastepnie wszystko dziele przez 2, poniewaz f(x) jest parzysta
-errors = []
-ns = []
-for n in range(1, 40):
-    #wyznaczam wezly i wagi dla N = 2*n
-    roots, weights = scis.roots_legendre(2*n)
+#kwadratura Gaussa-Legendre'a dla przedzialu [a, b]
+def gaussLegendreQuadrature(f, a, b, n):
+    roots, weights = scis.roots_legendre(n)
 
     #obliczanie wartosci calki
     result = 0
     for i in range(len(roots)):
-        result += weights[i] * f(roots[i])
+        x = ((b-a) * roots[i] + a + b) / 2
+        w = (b-a) * weights[i] / 2
+        result += w * f(x)
     
-    #dziele na 2, bo liczylem na dwa razy wiekszym przedziale
-    result /= 2
+    #return wyniku
+    return result
+
+
+
+errors = []
+ns = []
+for n in range(1, 40):
+    #obliczanie wartosci calki
+    result = gaussLegendreQuadrature(f, 0, 1, n)
 
     #dane do wykresu (n i error)
     ns.append(n)
@@ -33,6 +40,11 @@ plt.xlabel("n")
 plt.ylabel("blad wzgledny")
 plt.plot(ns, errors)
 plt.show()
+
+
+#zmiana danych X
+for i in range(len(ns)):
+    ns[i] = np.log2(ns[i]-1)
 
 #pobieranie i tworzenie sciezki do pliku z danymi
 path = str(Path(__file__).parent.absolute())

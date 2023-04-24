@@ -14,9 +14,6 @@ with open(path, 'rb') as file:
     trapzErrors = np.load(file)
     simpsonErrors = np.load(file)
 
-print(M)
-print(rectErrors)
-
 #licze h_min
 rectM = [float('inf'), 0]
 trapzM = [float('inf'), 0]

@@ -1,7 +1,6 @@
 import numpy as np
 from pathlib import Path
 
-#funkcja do obliczania calki metoda prostokatow
 def rectIntegrate(f, a, b):
     return (b-a)*f((a+b)/2)
 
