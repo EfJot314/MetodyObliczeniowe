@@ -78,7 +78,7 @@ def integrateFunction(f, tv, file):
 
 
 #funkcje dane w zadaniu
-f1 = lambda x: np.sqrt(x) * np.log(x) if x > 0 else None
+f1 = lambda x: np.sqrt(x) * np.log(x) if x > 0 else 0
 a = 0.001
 b = 0.004
 f2 = lambda x: 1 / ((x - 0.3)**2 + a) + 1 / ((x - 0.9)**2 + b)
