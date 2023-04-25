@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1682417148 "/home/filipjedrzejewski/MetodyObliczeniowe/lab7/opracowanie.tex" "opracowanie.pdf" "opracowanie" 1682417149 0
+["pdflatex"] 1682421545 "/home/filipjedrzejewski/MetodyObliczeniowe/lab7/opracowanie.tex" "opracowanie.pdf" "opracowanie" 1682421546 0
   "/home/filipjedrzejewski/.texlive2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1682400611 1345254 62451694d16e70a648a741ed81755756 ""
-  "/home/filipjedrzejewski/MetodyObliczeniowe/lab7/opracowanie.tex" 1682417148 3066 73cecb343fe556c59c1839d16ef003de ""
+  "/home/filipjedrzejewski/MetodyObliczeniowe/lab7/opracowanie.tex" 1682421544 3322 252512e7f42ab54b2e49e557f3b06381 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -58,9 +58,11 @@
   "/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1681497499 40136 b05acc85e8425979e52682d98a2bcacf ""
   "/usr/share/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1682405488 5129898 4875121d1b9ef2121c3a12625225e591 ""
-  "opracowanie.aux" 1682417149 32 ab05033ccbb38b00a31b200ccedf8001 "pdflatex"
-  "opracowanie.tex" 1682417148 3066 73cecb343fe556c59c1839d16ef003de ""
+  "opracowanie.aux" 1682421546 32 c81c40425fbb5e93b90fba65da0b5e61 "pdflatex"
+  "opracowanie.tex" 1682421544 3322 252512e7f42ab54b2e49e557f3b06381 ""
   "wykres1.png" 1682415861 158425 330353ea2d8218fef194b1790e0197ee ""
+  "wykres2.png" 1682421218 122641 e8e926148fd975f834ec8634116a199a ""
+  "wykres3.png" 1682421256 144535 b5152e3788f23660169bfab4ccdbcd99 ""
   (generated)
   "opracowanie.aux"
   "opracowanie.log"
