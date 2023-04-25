@@ -39,11 +39,11 @@ h_min = 1/(2**simpsonM[1])
 print("h_min_simpson (dla m =", simpsonM[1], "):", h_min)
 
 #wykresy
-plt.title("Bledy wzgledne kwadratur")
+plt.title("Błędy względne kwadratur")
 plt.xlabel("m")
-plt.ylabel("blad wzgledny")
-plt.plot(M, rectErrors, label="Metoda prostokatow")
-plt.plot(M, trapzErrors, label="Metoda trapezow")
+plt.ylabel("błąd względny")
+plt.plot(M, rectErrors, label="Metoda prostokątów")
+plt.plot(M, trapzErrors, label="Metoda trapezów")
 plt.plot(M, simpsonErrors, label="Metoda Simpsona")
 plt.yscale("log")
 plt.legend()
@@ -63,18 +63,34 @@ print("Orders of convergence:")
 #metoda prostokatow
 print("---------------------------")
 print("Rect:")
+r = []
 for i in range(1, 20):
     print(orderOfConvergence(i-1, i, rectErrors))
+    r.append(orderOfConvergence(i-1, i, rectErrors))
 
 #metoda trapezow
 print("---------------------------")
 print("Trapz:")
+t = []
 for i in range(1, 21):
     print(orderOfConvergence(i-1, i, trapzErrors))
+    t.append(orderOfConvergence(i-1, i, trapzErrors))
 
 #metoda Simpsona
 print("---------------------------")
 print("Simpson:")
+s = []
 for i in range(1, 8):
     print(orderOfConvergence(i-1, i, simpsonErrors))
+    s.append(orderOfConvergence(i-1, i, simpsonErrors))
 
+
+#wykresy rzedow zbieznosci
+plt.title("Rzędy zbieżności kwadratur w zależności od m")
+plt.xlabel("m")
+plt.ylabel("Wartość rzędu zbieżności")
+plt.plot(r, label="Metoda prostokątów")
+plt.plot(t, label="Metoda trapezów")
+plt.plot(s, label="Metoda Simpsona")
+plt.legend()
+plt.show()

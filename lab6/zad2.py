@@ -25,7 +25,7 @@ def gaussLegendreQuadrature(f, a, b, n):
 
 errors = []
 ns = []
-for n in range(1, 40):
+for n in range(1, 500):
     #obliczanie wartosci calki
     result = gaussLegendreQuadrature(f, 0, 1, n)
 
@@ -34,10 +34,10 @@ for n in range(1, 40):
     errors.append(abs((result - np.pi) / np.pi))
 
 #wykres tylko tej metody
-plt.title("Bledy wzgledne kwadratury Gaussa-Legendre'a")
+plt.title("Błędy względne kwadratury Gaussa-Legendre'a")
 plt.yscale("log")
 plt.xlabel("n")
-plt.ylabel("blad wzgledny")
+plt.ylabel("błąd względny")
 plt.plot(ns, errors)
 plt.show()
 
@@ -58,11 +58,11 @@ with open(path, 'rb') as file:
     simpsonErrors = np.load(file)
 
 #wspolny wykres wszytskich metod
-plt.title("Bledy wzgledne kwadratur")
+plt.title("Błędy względne kwadratur")
 plt.xlabel("m")
-plt.ylabel("blad wzgledny")
-plt.plot(M, rectErrors, label="Metoda prostokatow")
-plt.plot(M, trapzErrors, label="Metoda trapezow")
+plt.ylabel("błąd względny")
+plt.plot(M, rectErrors, label="Metoda prostokątów")
+plt.plot(M, trapzErrors, label="Metoda trapezów")
 plt.plot(M, simpsonErrors, label="Metoda Simpsona")
 plt.plot(ns, errors, label="Metoda Gaussa-Legendre'a")
 plt.yscale("log")
