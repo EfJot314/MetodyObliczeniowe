@@ -32,10 +32,14 @@ with open(path, 'rb') as file:
 
 
 #zmiana danych X
+for i in range(len(glN1)):
+    glN1[i] = np.log2(glN1[i])
 for i in range(len(gkN1)):
     gkN1[i] = np.log2(gkN1[i]-1)
 for i in range(len(tN1)):
     tN1[i] = np.log2(tN1[i]-1)
+for i in range(len(glN2)):
+    glN2[i] = np.log2(glN2[i])
 for i in range(len(gkN2)):
     gkN2[i] = np.log2(gkN2[i]-1)
 for i in range(len(tN2)):
@@ -49,6 +53,7 @@ plt.ylabel("blad wzgledny")
 plt.plot(M1, rectErrors1, label="Metoda prostokatow")
 plt.plot(M1, trapzErrors1, label="Metoda trapezow")
 plt.plot(M1, simpsonErrors1, label="Metoda Simpsona")
+plt.plot(glN1, glErrors1, label="Metoda Gaussa-Legendre'a")
 plt.plot(gkN1, gkErrors1, label="Metoda Gaussa-Kronroda")
 plt.plot(tN1, tErrors1, label="Metoda adaptacyjna trapezow")
 plt.yscale("log")
@@ -63,6 +68,7 @@ plt.ylabel("blad wzgledny")
 plt.plot(M2, rectErrors2, label="Metoda prostokatow")
 plt.plot(M2, trapzErrors2, label="Metoda trapezow")
 plt.plot(M2, simpsonErrors2, label="Metoda Simpsona")
+plt.plot(glN2, glErrors2, label="Metoda Gaussa-Legendre'a")
 plt.plot(gkN2, gkErrors2, label="Metoda Gaussa-Kronroda")
 plt.plot(tN2, tErrors2, label="Metoda adaptacyjna trapezow")
 plt.yscale("log")

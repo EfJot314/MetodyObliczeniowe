@@ -27,7 +27,7 @@ for m in range(15):
 #Gauss-Legendre
 glErrors = []
 glN = []
-for n in range(1, 40):
+for n in range(1, 500):
     #obliczanie wartosci calki
     result = module.gaussLegendreQuadrature(f, 0, 1, n)
 
@@ -63,15 +63,15 @@ print("liczba ewaluacji GK:", gkN)
 
 
 #wykresy
-plt.title("Bledy wzgledne kwadratur")
+plt.title("Błędy względne kwadratur")
 plt.xlabel("m")
-plt.ylabel("blad wzgledny")
-plt.plot(M, rectErrors, label="Metoda prostokatow")
-plt.plot(M, trapzErrors, label="Metoda trapezow")
+plt.ylabel("błąd względny")
+plt.plot(M, rectErrors, label="Metoda prostokątów")
+plt.plot(M, trapzErrors, label="Metoda trapezów")
 plt.plot(M, simpsonErrors, label="Metoda Simpsona")
 plt.plot(glN, glErrors, label="Metoda Gaussa-Legendre'a")
 plt.plot(gkN, gkErrors, label="Metoda Gaussa-Kronroda")
-plt.plot(tN, tErrors, label="Metoda adaptacyjna trapezow")
+plt.plot(tN, tErrors, label="Metoda adaptacyjna trapezów")
 plt.yscale("log")
 plt.legend()
 plt.show()

@@ -34,13 +34,13 @@ def integrateFunction(f, tv, file):
     #Gauss-Legendre
     glErrors = []
     glN = []
-    for n in range(1, 40):
+    for n in range(1, 500):
         #obliczanie wartosci calki
         result = module.gaussLegendreQuadrature(f, 0, 1, n)
 
         #dane do wykresu (n i error)
         glN.append(n)
-        glErrors.append(abs((result - np.pi) / np.pi))
+        glErrors.append(abs((result - tv) / tv))
 
     
     #metody adaptacyjne
@@ -81,12 +81,13 @@ def integrateFunction(f, tv, file):
 f1 = lambda x: np.sqrt(x) * np.log(x) if x > 0 else 0
 a = 0.001
 b = 0.004
-f2 = lambda x: 1 / ((x - 0.3)**2 + a) + 1 / ((x - 0.9)**2 + b)
+f2 = lambda x: 1 / ((x - 0.3)**2 + a) + 1 / ((x - 0.9)**2 + b) - 6
 
 #dokladne wartosci calek
 tv1 = -4/9
 tv2 = 1 / np.sqrt(a) * (np.arctan((1 - 0.3) / np.sqrt(a)) + np.arctan(0.3 / np.sqrt(a)))
 tv2 += 1 / np.sqrt(b) * (np.arctan((1 - 0.9) / np.sqrt(b)) + np.arctan(0.9 / np.sqrt(b)))
+tv2 += -6
 
 #pobieranie i tworzenie sciezki do pliku z danymi
 path = str(Path(__file__).parent.absolute())
