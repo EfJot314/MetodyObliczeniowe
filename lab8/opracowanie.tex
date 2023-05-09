@@ -169,7 +169,7 @@
 
 	\subsection*{Dokładność}
 
-	Wiedząc, że $x_0$ jest przybliżeniem pierwiastka z dokładnością 4 bitów, aby osiągnąć 24 bitową dokładność należy wykonać 2 iteracje. Wynika to z tego, że metoda Newtona rząd zbieżności kwadratowy, co oznacza, że z każdą iteracją, liczba ustalanych bitów wzrasta dwukrotnie. Oznacza to, że skoro początkowo $x_0$ miało dokładność 4 bitów, to po pierwszej iteracji miało dokładność 12 bitów (+8 bitów), a po drugiej już 28 (+16 bitów). Analogicznie aby mieć dokładność 53 bitów wystarczy wykonać jeszcze jedną iterację (łącznie 3), ponieważ po niej dokładność będzie wynosiła 60 bitów (+32 bity).
+	Wiedząc, że $x_0$ jest przybliżeniem pierwiastka z dokładnością 4 bitów, aby osiągnąć 24 bitową dokładność należy wykonać 2 iteracje. Wynika to z tego, że metoda Newtona ma kwadratowy rząd zbieżności, co oznacza, że z każdą iteracją, liczba ustalanych bitów wzrasta dwukrotnie. Oznacza to, że skoro początkowo $x_0$ miało dokładność 4 bitów, to po pierwszej iteracji miało dokładność 12 bitów (+8 bitów), a po drugiej już 28 (+16 bitów). Analogicznie, aby mieć dokładność 53 bitów wystarczy wykonać jeszcze jedną iterację (łącznie 3), ponieważ po niej dokładność będzie wynosiła 60 bitów (+32 bity).
 
 
 	\newpage
@@ -217,7 +217,7 @@
 		g(x) = x - \frac{x^2 + x - 1}{2x+1} = \frac{x^2+1}{2x+1}
 	\end{equation}
 
-	Na tej podstawie napisano program w Pythonie wyznaczający miejsce zerowe funcji $f(y)$. Aby otrzymać rozwiązanie na $x$, należy spierwiastkować otrzymane $y_0$ (zgodnie z równaniem (22)). Otrzyame wyniki w zależności od liczby iteracji:
+	Na tej podstawie napisano program w Pythonie wyznaczający miejsce zerowe funcji $f(y)$. Aby otrzymać wartość $x$, należy spierwiastkować otrzymane $y_0$ (zgodnie z równaniem (22)). Otrzymane wyniki w zależności od liczby iteracji zapisano w tabeli:
 
 	\begin{center}
 		\begin{tabular}{c|c|c}
@@ -245,13 +245,13 @@
 	\end{equation}
 
 	\begin{equation}
-		y = \frac{\sqrt{5}}{2} - \frac{1}{2} \approx 0,6118033988
+		y = \frac{\sqrt{5}}{2} - \frac{1}{2} \approx 0,618033988
 	\end{equation}
 
 
 	Wyniki z tabeli pokrywają się z wynikami otrzymanymi przy użyciu kalkulatora, co pozwala przypuszczać, że obliczania zostały wykonane prawidłowo. 
 
-	Na podstawie obliczonych danych stworzono wykres błędu względnego $y$ znalezionego metodą Newtona w zależności od liczby iteracji. Na osi $y$ została zastosowana skala logarytmiczna.
+	Na podstawie obliczonych danych stworzono wykres błędu względnego $y$ znalezionego metodą Newtona, w zależności od liczby iteracji. Na osi $y$ została zastosowana skala logarytmiczna.
 
 
 	\begin{figure}[h]

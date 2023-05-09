@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 g = lambda x: (x*x + 1) / (2*x + 1)
 
 
-
 n = 10
 
 yTab = [0 for i in range(n)]
