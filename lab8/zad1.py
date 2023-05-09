@@ -48,6 +48,9 @@ for j in range(4):
 
 
 #wykresy empirycznych rzedow zbieznosci
+plt.title("Empiryczne rzędy zbieżności")
+plt.xlabel("Numer iteracji")
+plt.ylabel("Wartość rzędu zbieżności")
 plt.plot(xOrderData[0], orderData[0], label="g1")
 plt.plot(xOrderData[1], orderData[1], label="g2")
 plt.plot(xOrderData[2], orderData[2], label="g3")
@@ -71,6 +74,9 @@ for j in range(4):
 
 
 #wykresy bledow
+plt.title("Wartości bezwzględne błędów względnych wyznaczenia pierwiastka równania")
+plt.xlabel("Numer iteracji")
+plt.ylabel("Błąd względny")
 plt.plot(epsData[0], label="g1")
 plt.plot(epsData[1], label="g2")
 plt.plot(epsData[2], label="g3")
