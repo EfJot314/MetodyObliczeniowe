@@ -1,0 +1,147 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{systeme}
+\usepackage[T1]{fontenc}
+
+
+\title{Lab 9}
+\author{Filip Jędrzejewski}
+
+\begin{document}
+	\maketitle
+	
+	\section*{Zadanie 1}
+	
+	\subsection*{Opis problemu}
+
+	Celem zadania było przedstawienie każdego z poniższych równań różniczkowych zwyczajnych jako równoważny układ równań pierwszego rzędu.
+
+	\subsection*{Równanie Van der Pol’a}
+
+	\begin{equation}
+		y'' = y' (1-y^2)-y
+	\end{equation}
+
+	Zapiszmy:
+
+	\begin{equation}
+		y_1 = y
+	\end{equation}
+
+	\begin{equation}
+		y_2 = y'
+	\end{equation}
+	
+	Zatem:
+
+	\begin{equation}
+		\left\{\begin{array}{rcl}
+			y_1'&=&y_2\\
+			y_2'&=&y_2(1-y_1^2)-y_1\\
+			\end{array} \right.
+	\end{equation}
+
+
+	\subsection*{Równanie Blasiusa}
+
+	\begin{equation}
+		y''' = -yy''
+	\end{equation}
+
+	Zapiszmy:
+
+	\begin{equation}
+		y_1 = y
+	\end{equation}
+
+	\begin{equation}
+		y_2 = y'
+	\end{equation}
+
+	\begin{equation}
+		y_3 = y''
+	\end{equation}
+
+
+	\newpage
+
+	Zatem:
+
+	\begin{equation}
+		\left\{\begin{array}{rcl}
+			y_1'&=&y_2\\
+			y_2'&=&y_3\\
+			y_3'&=&-y_1y_3
+			\end{array} \right.
+	\end{equation}
+
+
+	\subsection*{Prawo powszechnego ciążenia dla problemu dwóch ciał}
+
+	\begin{equation}
+		\left\{\begin{array}{rcl}
+			y_1''&=&-GM \frac{y_1}{(y_1^2+y_2^2)^{\frac{3}{2}}}\\
+			y_2''&=&-GM \frac{y_2}{(y_1^2+y_2^2)^{\frac{3}{2}}}
+			\end{array} \right.
+	\end{equation}
+
+	Zapiszmy:
+
+	\begin{equation}
+		x_1 = y_1
+	\end{equation}
+
+	\begin{equation}
+		x_2 = y_1'
+	\end{equation}
+
+	\begin{equation}
+		x_{I} = y_2
+	\end{equation}
+
+	\begin{equation}
+		x_{II} = y_2'
+	\end{equation}
+
+	\begin{equation}
+		R = (y_1^2+y_2^2)^{\frac{1}{2}} = (x_1^2+x_I^2)^{\frac{1}{2}}
+	\end{equation}
+
+	Zatem:
+
+	\begin{equation}
+		\left\{\begin{array}{rcl}
+			x_1'&=&x_2\\
+			x_I'&=&x_{II}\\
+			x_2'&=&-GM \cdot x_1 R^{-3}\\
+			x_{II}'&=&-GM  \cdot x_I R^{-3}
+			\end{array} \right.
+	\end{equation}
+
+
+	\newpage
+
+
+	\section*{Zadanie 2}
+	
+	\subsection*{Opis problemu}
+
+	Dane jest równanie różniczkowe zwyczajne:
+
+	\begin{equation}
+		y' = -5y
+	\end{equation}
+
+	z warunkiem początkowym $y(0) = 1$. Równanie rozwiązujemy numerycznie z krokiem $h = 0,5$ . 
+
+	\subsection*{Czy rozwiązania powyższego równania są stabilne?}
+
+
+	
+	
+	
+	
+	
+	
+\end{document}
