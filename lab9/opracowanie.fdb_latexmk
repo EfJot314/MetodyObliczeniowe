@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1686062897 "/home/filipjedrzejewski/MetodyObliczeniowe/lab9/opracowanie.tex" "opracowanie.pdf" "opracowanie" 1686062898 0
-  "/home/filipjedrzejewski/MetodyObliczeniowe/lab9/opracowanie.tex" 1686062897 7651 7e4d0de719cadf92f004c7d677a54bbd ""
+["pdflatex"] 1686065049 "/home/filipjedrzejewski/MetodyObliczeniowe/lab9/opracowanie.tex" "opracowanie.pdf" "opracowanie" 1686065050 0
+  "/home/filipjedrzejewski/MetodyObliczeniowe/lab9/opracowanie.tex" 1686065049 8508 42055a4a0b8c6396d98419c092e54b57 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -77,8 +77,8 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1684972800 40326 aba987258e6d6b6da5dec3a727ea174b ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1685805646 4548400 e16024560f6c1fc5f26950025a006d2c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1685805172 7862959 c541c73e1d88078108b85c28f621e2ae ""
-  "opracowanie.aux" 1686062898 32 77e0dffd05b653a64f0caf3eb9bb454a "pdflatex"
-  "opracowanie.tex" 1686062897 7651 7e4d0de719cadf92f004c7d677a54bbd ""
+  "opracowanie.aux" 1686065050 32 4d1825978335c8847f72f7c473f9edc8 "pdflatex"
+  "opracowanie.tex" 1686065049 8508 42055a4a0b8c6396d98419c092e54b57 ""
   (generated)
   "opracowanie.aux"
   "opracowanie.log"

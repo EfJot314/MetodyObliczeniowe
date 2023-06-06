@@ -366,11 +366,50 @@
 	Dla każdej metody sprawdzono, w jakim stopniu rozwiązania spełniają zasady zachowania pędu oraz energii.
 	\\
 
-	Prawo zachowania energii:
+	Zasada zachowania energii:
 
 	\begin{equation}
-		E_c = E_k+E_p = \frac{1}{2} m v^2 - GM \frac{m}{R} = \frac{1}{2} m (v_x^2+v_y^2) - GM \frac{m}{R} = \frac{1}{2} m ((x')^2 + (y')^2) - GMm \cdot (x^2+y^2)^{-0.5}
+		E_c = E_k+E_p = \frac{1}{2} m v^2 - GM \frac{m}{R} = \frac{1}{2} m (v_x^2+v_y^2) - GM \frac{m}{R}
 	\end{equation}
+
+	\begin{equation}
+		E_c = \frac{1}{2} m ((x')^2 + (y')^2) - GMm \cdot (x^2+y^2)^{-0.5}
+	\end{equation}
+
+	Przyjmując założenie, że $GM = 1$ oraz dzieląc obie strony równania przez $m$, otrzymujemy:
+
+	\begin{equation}
+		\frac{E_c}{m} = \frac{(x')^2+(y')^2}{2} - (x^2+y^2)^{-0.5}
+	\end{equation}
+
+	
+
+	Zasada zachowania momentu pędu:
+
+	\begin{equation}
+		\overrightarrow{L} = \overrightarrow{R} \times \overrightarrow{p} = m \cdot (\overrightarrow{R} \times \overrightarrow{v})
+	\end{equation}
+
+	\begin{equation}
+		L = m \cdot (R_y \cdot v_x + R_x \cdot v_y) = m \cdot (y \cdot x' + x \cdot y')
+	\end{equation}
+
+	Po przekształceniach, otrzymujemy równanie:
+
+	\begin{equation}
+		\frac{L}{m} = xy'+yx'
+	\end{equation}
+
+	Korzystając z wyrażeń (50) oraz (53), można obserwować, jak zmienia się energia całkowita oraz moment pędu ciała podczas trwania symulacji.
+
+
+	\subsection*{Jawna metoda Euler'a}
+
+	
+
+
+	
+
 	
 	
 	
