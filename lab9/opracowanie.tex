@@ -405,7 +405,167 @@
 
 	\subsection*{Jawna metoda Euler'a}
 
+	Wzór jawnej metody Euler'a:
+
+	\begin{equation}
+		y_{k+1} = y_k + h \cdot f(t_k, y_k)
+	\end{equation}
+
+	W podanej sytuacji:
+
+	\begin{equation}
+		x_{k+1} = x_k + \Delta t \cdot v_{x_k} 
+	\end{equation}
+
+	\begin{equation}
+		v_{x_{k+1}} = v_{x_k} - \Delta t \cdot GM \cdot x_k \cdot R^{-3}
+	\end{equation}
+
+	\begin{equation}
+		y_{k+1} = y_k + \Delta t \cdot v_{y_k} 
+	\end{equation}
+
+	\begin{equation}
+		v_{y_{k+1}} = v_{y_k} - \Delta t \cdot GM \cdot y_k \cdot R^{-3}
+	\end{equation}
+
+	przy czym:
+
+	\begin{equation}
+		R = (x^2 + y^2) ^ {0.5}
+	\end{equation}
+
+	\newpage
+
+	Na podstawie powyższych równań stworzono wykresy (dla $e = 0$):
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale = 0.5]{wykres1.png}
+	\end{figure}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale = 0.70]{wykres2.png}
+	\end{figure}
+
+
+	\newpage
+
+	\subsection*{Niejawna metoda Euler'a}
+
+	Wzór niejawnej metody Euler'a:
+
+	\begin{equation}
+		y_{k+1} = y_k + h \cdot f(t_{k+1}, y_{k+1})
+	\end{equation}
+
+	W podanej sytuacji:
+
+	\begin{equation}
+		x_{k+1} = x_k + \Delta t \cdot v_{x_{k+1}} 
+	\end{equation}
+
+	\begin{equation}
+		v_{x_{k+1}} = v_{x_k} - \Delta t \cdot GM \cdot x_{k+1} \cdot R^{-3}
+	\end{equation}
+
+	Łącząc (61) z (62), otrzymujemy:
+
+	\begin{equation}
+		x_{k+1} = \frac{x_k + \Delta t \cdot v_k}{1+(\Delta t) ^ 2 \cdot \frac{GM}{R^3}}
+	\end{equation}
+
+	\begin{equation}
+		v_{x_{k+1}} = v_{x_k} + \Delta t \cdot \frac{GM}{R^3} \cdot x_{k+1}
+	\end{equation}
+
 	
+
+	Analogiczne wzory zastosowano dla $y$ oraz $v_y$. Na podstawie tych czterech równań stworzono wykresy (dla $e = 0$):
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale = 0.7]{wykres3.png}
+	\end{figure}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale = 0.70]{wykres4.png}
+	\end{figure}
+
+	\newpage
+
+	\subsection*{Półjawna metoda Euler'a}
+
+	Wzór półjawnej metody Euler'a:
+
+	\begin{equation}
+		v_{n+1} = v_n + h \cdot g(t_n, x_n)
+	\end{equation}
+
+	\begin{equation}
+		x_{n+1} = x_n + h \cdot f(t_n, v_{n+1})
+	\end{equation}
+
+	W podanej sytuacji:
+
+	\begin{equation}
+		v_{x_{k+1}} = v_{x_k} - \Delta t \cdot \frac{GM}{R^3} \cdot x_k
+	\end{equation}
+
+	\begin{equation}
+		x_{k+1} = x_k + \Delta t \cdot v_{x_{k+1}} 
+	\end{equation}
+
+	\newpage
+
+	Analogiczne zależności wyprowadzono dla $y$ oraz $v_y$. Dla $e = 0$ stworzono wykresy:
+
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale = 0.5]{wykres5.png}
+	\end{figure}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale = 0.70]{wykres6.png}
+	\end{figure}
+
+	\newpage
+
+	\subsection*{Metoda Rungego-Kutty czwartego rzędu (RK4)}
+
+	Wzór metody Rungego-Kutty czwartego rzędu:
+
+	\begin{equation}
+		y_{k+1} = y_k + \frac{h}{6} \cdot (k_1+2k_2+2k_3+k_4)
+	\end{equation}
+
+	\begin{equation}
+		k_1 = f(t_k, y_k)
+	\end{equation}
+
+	\begin{equation}
+		k_2 = f(t_k+\frac{h}{2}, y_k + \frac{hk_1}{2})
+	\end{equation}
+
+	\begin{equation}
+		k_3 = f(t_k+\frac{h}{2}, y_k + \frac{hk_2}{2})
+	\end{equation}
+
+	\begin{equation}
+		k_4 = f(t_k+h, y_k+hk_3)
+	\end{equation}
+
+	W podanej sytuacji:
+
+	
+
+	
+
+
 
 
 	
