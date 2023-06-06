@@ -2,7 +2,9 @@
 
 \usepackage{graphicx}
 \usepackage{systeme}
+\usepackage{mathabx}
 \usepackage[T1]{fontenc}
+
 
 
 \title{Lab 9}
@@ -77,7 +79,7 @@
 	\end{equation}
 
 
-	\subsection*{Prawo powszechnego ciążenia dla problemu dwóch ciał}
+	\subsection*{Prawo powszechnego ciążenia dla problemu dwóch ciał o dużej różnicy mas}
 
 	\begin{equation}
 		\left\{\begin{array}{rcl}
@@ -114,6 +116,7 @@
 		\left\{\begin{array}{rcl}
 			x_1'&=&x_2\\
 			x_I'&=&x_{II}\\
+			R &=& (x_1^2+x_I^2)^{\frac{1}{2}}\\
 			x_2'&=&-GM \cdot x_1 R^{-3}\\
 			x_{II}'&=&-GM  \cdot x_I R^{-3}
 			\end{array} \right.
@@ -135,12 +138,239 @@
 
 	z warunkiem początkowym $y(0) = 1$. Równanie rozwiązujemy numerycznie z krokiem $h = 0,5$ . 
 
-	\subsection*{Czy rozwiązania powyższego równania są stabilne?}
+	\subsection*{Czy rozwiązania tego równania są stabilne?}
+
+	Mamy dane:
+
+	\begin{equation}
+		\left\{\begin{array}{rcl}
+			y' &=& -5y \\
+			y(0) &=& 1
+			\end{array} \right.
+	\end{equation}
+
+	Zatem:
+
+	\begin{equation}
+		\left\{\begin{array}{rcl}
+			\hat{y}' &=& -5\hat{y} \\
+			\hat{y}(0) &=& 1+\varepsilon_0
+			\end{array} \right.
+	\end{equation}
+
+	Korzystając z:
+
+	\begin{equation}
+		\varepsilon (t) = \hat{y}(t) - y(t)
+	\end{equation}
+
+	\begin{equation}
+		\varepsilon ' (t) = \hat{y}'(t) - y'(t)
+	\end{equation}
+
+	Otrzymujemy:
+
+	\begin{equation}
+		\left\{\begin{array}{rcl}
+			\varepsilon ' (t) &=& \hat{y}'(t) - y'(t) = -5 \cdot (\hat{y}(t) - y(t)) = -5 \cdot \varepsilon (t) \\
+			\varepsilon (0) &=& \varepsilon_0
+			\end{array} \right.
+	\end{equation}
+
+	Rozwiązaniem tego układu równań jest:
+
+	\begin{equation}
+		\varepsilon (t) = \varepsilon_0 e^{-5t}
+	\end{equation}
+
+	Aby rozwiązania równania były stabilne, to musi być spełniony następujący warunek:
+
+	\begin{equation}
+		| \varepsilon (t) | < \infty
+	\end{equation}
+
+	dla każdego $t \geq t_0$, zatem w tym konkretnym przypadku:
+
+	\begin{equation}
+		t \geq 0
+	\end{equation}
+
+	Łącząc zależności (23) oraz (25), otrzymujemy:
+
+	\begin{equation}
+		| \varepsilon (t) | \leq \varepsilon_0 < \infty
+	\end{equation}
+
+	Zatem rozwiązania tego równania są stabilne.
 
 
-	
-	
-	
+	\subsection*{Czy jawna metoda Euler'a jest stabilna dla tego równania z użytym krokiem $h$?}
+
+	Warunek na stabilność jawnej metody Euler'a:
+
+	\begin{equation}
+		|1+h\lambda| < 1
+	\end{equation}
+
+	Po podstawieniu liczb:
+
+	\begin{equation}
+		|1-5 \cdot 0.5| = |-1.5| = 1.5 < 1
+	\end{equation}
+
+	Otrzymano sprzeczność, zatem jawna metoda Euler'a nie jest stabilna dla tego równania z krokiem $h = 0.5$.
+
+	\subsection*{Obliczanie numerycznie wartości przybliżonego rozwiązania dla $t = 0.5$ jawną metodą Euler'a.}
+
+	Wzór jawnej metody Euler'a:
+
+	\begin{equation}
+		y_{k+1} = y_k + h \cdot f(t_k, y_k)
+	\end{equation}
+
+	W tym przypadku funkcja $f(t, y)$ ma postać:
+
+	\begin{equation}
+		f(t, y) = -5 \cdot y(t)
+	\end{equation}
+
+	Na podstawie równań (29) oraz (30) wyznaczamy wartość przybliżonego rozwiązania dla $t = 0.5$:
+
+	\begin{equation}
+		y_0 = \hat{y}(0) = y(0) = 1
+	\end{equation}
+
+	\begin{equation}
+		y_1 = \hat{y}(0.5) = y_0 + h \cdot f(0, y_0) = y_0 - 5 \cdot h \cdot y_0 = 1 - 5 \cdot 0.5 \cdot 1 = -1.5
+	\end{equation}
+
+	Zatem ostatecznie:
+
+	\begin{equation}
+		\hat{y} (0.5) = -1.5
+	\end{equation}
+
+
+	\subsection*{Czy niejawna metoda Euler'a jest stabilna dla tego równania z użytym krokiem $h$?}
+
+	Warunek na stabilność niejawnej metody Euler'a:
+
+	\begin{equation}
+		\left| \frac{1}{1-h \lambda} \right| < 1
+	\end{equation}
+
+	Po podstawieniu liczb:
+
+	\begin{equation}
+		\left| \frac{1}{1+0.5 \cdot 5} \right| = \left| \frac{2}{7} \right| = \frac{2}{7} < 1
+	\end{equation}
+
+	Z tego wynika, że niejawna metoda Euler'a  jest stabilna dla tego równania z krokiem $h = 0.5$.
+
+
+
+	\subsection*{Obliczanie numerycznie wartości przybliżonego rozwiązania dla $t = 0.5$ niejawną metodą Euler'a.}
+
+	Wzór niejawnej metody Euler'a:
+
+	\begin{equation}
+		y_{k+1} = y_k + h \cdot f(t_{k+1}, y_{k+1})
+	\end{equation}
+
+	W tym przypadku funkcja $f(t, y)$ ma postać:
+
+	\begin{equation}
+		f(t, y) = -5 \cdot y(t)
+	\end{equation}
+
+	Łącząc zależności (36) i (37), otrzymujemy:
+
+	\begin{equation}
+		y_{k+1} = y_k - 5 \cdot h \cdot y_{k+1}
+	\end{equation}
+
+	\begin{equation}
+		y_{k+1} = \frac{y_k}{1 + 5h}
+	\end{equation}
+
+	Korzystając z wyrażenia (39) wyznaczamy wartość przybliżonego rozwiązania dla $t = 0.5$:
+
+	\begin{equation}
+		y_0 = \hat{y}(0) = y(0) = 1
+	\end{equation}
+
+	\begin{equation}
+		y_1 = \hat{y} (0.5) = \frac{y_0}{1+5h} = \frac{1}{1+5 \cdot 0.5} = \frac{2}{7} 
+	\end{equation}
+
+	Zatem ostatecznie:
+
+	\begin{equation}
+		\hat{y} (0.5) = \frac{2}{7}
+	\end{equation}
+
+
+	\newpage
+
+	\section*{Zadanie 3}
+
+	\subsection*{Opis problemu}
+
+	Celem zadania było rozwiązanie układu równań opisujących trajektorie ruchu dwóch ciał (o dużej różnicy mas ($m \ll M$)) poddanych wzajemnemu przyciąganiu grawitacyjnemu według teorii Newton'a:
+
+	\begin{equation}
+		\left\{\begin{array}{rcl}
+			x'' &=& -GM \cdot \frac{x}{R^3}\\
+			y'' &=& -GM \cdot \frac{y}{R^3}
+			\end{array} \right.
+	\end{equation}
+
+	przy czym: $G$ - stała grawitacji, $R = (x^2+y^2)^{0.5}$ - odległość orbitującego ciała od środka masy układu. 
+	\\
+
+	Dla potrzeb zadania dane zostały dobrane tak, że $GM = 1$. 
+	\\
+
+	Warunki początkowe:
+
+	\begin{equation}
+		x(0) = 1-e
+	\end{equation}
+
+	\begin{equation}
+		x'(0) = 0
+	\end{equation}
+
+	\begin{equation}
+		y(0) = 0
+	\end{equation}
+
+	\begin{equation}
+		y'(0) = \left( \frac{1+e}{1-e} \right)  ^ {0.5}
+	\end{equation}
+
+	Gdzie $e$ - mimośród (ekscentryczność) orbity eliptycznej o okresie $2\pi$.
+	\\
+
+
+
+	Powyższy układ równań należało rozwiązać stosując:
+
+	\begin{enumerate}
+		\item jawną metodę Euler'a
+		\item niejawną metodę Euler'a
+		\item półjawną metodę Euler'a
+		\item metodę Rungego-Kutty czwartego rzędu (RK4)
+	\end{enumerate}
+
+	Dla każdej metody sprawdzono, w jakim stopniu rozwiązania spełniają zasady zachowania pędu oraz energii.
+	\\
+
+	Prawo zachowania energii:
+
+	\begin{equation}
+		E_c = E_k+E_p = \frac{1}{2} m v^2 - GM \frac{m}{R} = \frac{1}{2} m (v_x^2+v_y^2) - GM \frac{m}{R} = \frac{1}{2} m ((x')^2 + (y')^2) - GMm \cdot (x^2+y^2)^{-0.5}
+	\end{equation}
 	
 	
 	
