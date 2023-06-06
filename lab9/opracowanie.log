@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.6.3)  6 JUN 2023 19:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.6.3)  6 JUN 2023 20:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -279,24 +279,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 366--368
 <wykres1.png, id=43, 400.3758pt x 328.8285pt>
 File: wykres1.png Graphic file (type png)
 <use wykres1.png>
-Package pdftex.def Info: wykres1.png  used on input line 444.
+Package pdftex.def Info: wykres1.png  used on input line 454.
 (pdftex.def)             Requested size: 200.1874pt x 164.41385pt.
 <wykres2.png, id=45, 454.5783pt x 338.9463pt>
 File: wykres2.png Graphic file (type png)
 <use wykres2.png>
-Package pdftex.def Info: wykres2.png  used on input line 449.
+Package pdftex.def Info: wykres2.png  used on input line 459.
 (pdftex.def)             Requested size: 318.20264pt x 237.26079pt.
  [8 <./wykres1.png> <./wykres2.png>]
 <wykres3.png, id=51, 400.3758pt x 328.8285pt>
 File: wykres3.png Graphic file (type png)
 <use wykres3.png>
-Package pdftex.def Info: wykres3.png  used on input line 489.
+Package pdftex.def Info: wykres3.png  used on input line 495.
 (pdftex.def)             Requested size: 280.26114pt x 230.17838pt.
-<wykres4.png, id=52, 454.5783pt x 338.9463pt>
+<wykres4.png, id=52, 448.7967pt x 338.9463pt>
 File: wykres4.png Graphic file (type png)
 <use wykres4.png>
-Package pdftex.def Info: wykres4.png  used on input line 494.
-(pdftex.def)             Requested size: 318.20264pt x 237.26079pt.
+Package pdftex.def Info: wykres4.png  used on input line 500.
+(pdftex.def)             Requested size: 314.15553pt x 237.26079pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -305,27 +305,38 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <wykres5.png, id=61, 400.3758pt x 328.8285pt>
 File: wykres5.png Graphic file (type png)
 <use wykres5.png>
-Package pdftex.def Info: wykres5.png  used on input line 528.
+Package pdftex.def Info: wykres5.png  used on input line 534.
 (pdftex.def)             Requested size: 200.1874pt x 164.41385pt.
 <wykres6.png, id=62, 448.7967pt x 338.9463pt>
 File: wykres6.png Graphic file (type png)
 <use wykres6.png>
-Package pdftex.def Info: wykres6.png  used on input line 533.
+Package pdftex.def Info: wykres6.png  used on input line 539.
 (pdftex.def)             Requested size: 314.15553pt x 237.26079pt.
- [11 <./wykres5.png> <./wykres6.png>] [12] (./opracowanie.aux) ) 
+ [11 <./wykres5.png> <./wykres6.png>] [12]
+<wykres7.png, id=71, 400.3758pt x 328.8285pt>
+File: wykres7.png Graphic file (type png)
+<use wykres7.png>
+Package pdftex.def Info: wykres7.png  used on input line 596.
+(pdftex.def)             Requested size: 200.1874pt x 164.41385pt.
+<wykres8.png, id=72, 454.5783pt x 338.9463pt>
+File: wykres8.png Graphic file (type png)
+<use wykres8.png>
+Package pdftex.def Info: wykres8.png  used on input line 601.
+(pdftex.def)             Requested size: 318.20264pt x 237.26079pt.
+ [13 <./wykres7.png> <./wykres8.png>] (./opracowanie.aux) ) 
 Here is how much of TeX's memory you used:
- 3604 strings out of 476182
- 53618 string characters out of 5796582
- 1857793 words of memory out of 6000000
- 23872 multiletter control sequences out of 15000+600000
+ 3618 strings out of 476182
+ 53834 string characters out of 5796582
+ 1858793 words of memory out of 6000000
+ 23884 multiletter control sequences out of 15000+600000
  525916 words of font info for 65 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  60i,11n,67p,320b,227s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/matha7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathabx-type1/mathx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb>
-Output written on opracowanie.pdf (12 pages, 320995 bytes).
+Output written on opracowanie.pdf (13 pages, 365714 bytes).
 PDF statistics:
- 147 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
+ 155 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
