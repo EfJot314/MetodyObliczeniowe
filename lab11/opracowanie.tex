@@ -245,7 +245,8 @@ def newton(x0, N):
      g = gradient(x)
      h = hessian(x)
 	  
-     #odwracam hessian, jesli jest osobliwy, to go lekko zmieniam, zeby byl odwracalny
+     #odwracam hessian, jesli jest osobliwy, 
+     #to go lekko zmieniam, zeby byl odwracalny
      if np.linalg.det(h) == 0:
    	h += np.eye(2) * 0.0000001
      h_inv = np.linalg.inv(h)
